@@ -7,5 +7,5 @@ IniDir.new.create_ini_files
 if ARGV.index("-i")
 	IniDir.new.create_index
 end
-GlobalMenu.new.create
+CustomeTmpl.new.create
 IndexPage.new.create

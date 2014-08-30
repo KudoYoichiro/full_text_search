@@ -19,6 +19,8 @@ class HEValidation
 		paths_to_check << configuration.estseek_master_help_path
 		paths_to_check << configuration.estseek_master_tmpl_path
 		paths_to_check << configuration.estseek_master_top_path
+		paths_to_check << File.join(configuration.server_path, configuration.css_path)
+		paths_to_check << File.join(configuration.server_path, configuration.javascript_path)
 
 		paths_to_check.each do |path|
 			begin

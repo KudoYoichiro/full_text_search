@@ -15,8 +15,7 @@
 <link rel="contents" href="./" />
 <link rev="made" href="mailto:magnus@hyperestraier.gov" />
 <title><!--ESTTITLE--></title>
-<style type="text/css">
-html {
+<style type="text/css">html {
   margin: 0em 0em; padding: 0em 0em;
   background: #ffffff none;
 }
@@ -248,110 +247,8 @@ div.help pre {
   background-color: #ffffff; border: 1pt solid #999999;
   -moz-border-radius: 0.2em;
 }
-
-/* custom style */
-#dropMenu {
-  list-style-type: none;
-  margin: 0.8em 1.0em;
-  padding: 0;
-}
-
-#dropMenu:after {
-  content: "";
-  clear: both;
-  display: block;
-}
-
-#dropMenu li {
-  position: relative;
-  width: 20%;
-  float: left;
-  margin: 0;
-  text-align: center;
-}
-
-#dropMenu li a {
-  display:  block;
-  margin: 0;
-  padding: 16px 0;
-  background: #8c177e;
-  color: #FFFFFF;
-  font-size: 14px;
-  list-style: 1.429;
-  text-decoration: none;
-  opacity: 0.9;
-}
-
-#dropMenu li ul {
-  list-style: none;
-  position: absolute;
-  z-index: 100;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-#dropMenu li ul li {
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  color: #FFFFFF;
-  transition: .2s;
-}
-
-#dropMenu li ul li a {
-  padding: 10px 15px;
-  background: #8c177e;
-  text-align: left;
-  font-size: 12px;
-  line-height: 1.5;
-  font-weight: normal;
-}
-
-#dropMenu > li:hover > a { background: #7a0969 }
-#dropMenu > li:hover li:hover > a { background: #4a0036 }
-#dropMenu li:hover > ul > li {
-  overflow: visible;
-  height: 38px;
-}
-
-#dropMenu li ul li ul {
-  top: 0;
-  left: 100%;
-}
-
-#dropMenu li:last-child ul li ul {
-  left: -100%;
-  width: 100%;
-}
-
-#dropMenu li ul li ul li a { background: #690057 }
-#dropMenu li:hover ul li ul li:hover > a { background: #4a0036 }
-#dropMenu li ul li ul:before {
-  position: absolute;
-  content: "";
-  top: 13px;
-  left: -20px;
-  width: 0;
-  height: 0;
-  border: 5px solid transparent;
-  border-left-color: #4a0734;
-}
-
-#dropMenu li:last-child ul li ul:before {
-  position: absolute;
-  content: "";
-  top: 13px;
-  left: 200%;
-  margin-left: -20px;
-  border: 5px solid transparent;
-  border-right-color: #4a0734;
-}
 </style>
-<script type="text/javascript">
-function startup(){
+<script type="text/javascript">function startup(){
   if((document.location + "").indexOf("#") != -1) return;
   var elem = document.getElementById("phrase");
   if(elem) elem.focus();

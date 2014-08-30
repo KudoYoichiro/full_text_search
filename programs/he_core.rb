@@ -13,6 +13,7 @@ class Configuration
 	:documents_path,
 	:hyperestraier_filter_path,
 	:index_file_path,
+	:index_url,
 	:logfile_path,
 	:caskets_path,
 	:ini_path,
@@ -23,7 +24,9 @@ class Configuration
 	:estseek_master_tmpl_path,
 	:estseek_master_top_path,
 	:conf_settings,
-	:index_settings
+	:index_settings,
+	:css_path,
+	:javascript_path
 
 	def initialize
 		set_paths
@@ -646,113 +649,7 @@ class IniFile < BaseFile
 	end
 end
 
-class GlobalMenu
-=begin
-#dropMenu {
-  list-style-type: none;
-}
-
-/* custom style */
-#dropMenu {
-  list-style-type: none;
-  margin: 0.8em 1.0em; padding: 0em 1.0em;
-  padding: 0;
-}
-
-#dropMenu:after {
-  content: "";
-  clear: both;
-  display: block;
-}
-
-#dropMenu li {
-  position: relative;
-  width: 20%;
-  float: left;
-  margin: 0;
-  text-align: center;
-  opacity: 0.95;
-}
-
-#dropMenu li a {
-  display:  block;
-  margin: 0;
-  padding: 16px 0;
-  background: #8A9B0F;
-  color: #FFFFFF;
-  font-size: 14px;
-  list-style: 1.429;
-  text-decoration: none;
-}
-
-#dropMenu li ul {
-  list-style: none;
-  position: absolute;
-  z-index: 100;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-#dropMenu li ul li {
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  color: #FFFFFF;
-  transition: .2s;
-}
-
-#dropMenu li ul li a {
-  padding: 13px 15px;
-  background: #7C8C0E;
-  text-align: left;
-  font-size: 12px;
-  line-height: 1.5;
-  font-weight: normal;
-}
-
-#dropMenu > li:hover > a { background: #7C8C0E }
-#dropMenu > li:hover li:hover > a { background: #6E7C0C }
-#dropMenu li:hover > ul > li {
-  overflow: visible;
-  height: 38px;
-}
-
-#dropMenu li ul li ul {
-  top: 0;
-  left: 100%;
-}
-
-#dropMenu li:last-child ul li ul {
-  left: -100%;
-  width: 100%;
-}
-
-#dropMenu li ul li ul li a { background: #616D0B }
-#dropMenu li:hover ul li ul li:hover > a { background: #535D09 }
-#dropMenu li ul li ul:before {
-  position: absolute;
-  content: "";
-  top: 13px;
-  left: -20px;
-  width: 0;
-  height: 0;
-  border: 5px solid transparent;
-  border-left-color: #454E08;
-}
-
-#dropMenu li:last-child ul li ul:before {
-  position: absolute;
-  content: "";
-  top: 13px;
-  left: 200%;
-  margin-left: -20px;
-  border: 5px solid transparent;
-  border-right-color: #454E08;
-}	
-=end
+class CustomeTmpl
 	include MyErrorHandler
 
 	def initialize
@@ -761,7 +658,7 @@ class GlobalMenu
 	end
 
 	def backup_tmlp_file
-		if File.exist?(@original_file_path)
+		if !File.exist?(@backup_file_path)
 			begin
 				FileUtils.cp(@original_file_path, @backup_file_path)
 			rescue Exception => e
@@ -771,20 +668,15 @@ class GlobalMenu
 	end
 
 	def create
-		print "\n*** making global menu ***\n"
+		print "\n*** making custom template ***\n"
 		if !File.exist?(@backup_file_path)
 			backup_tmlp_file
 		end
 
-		buffer = ""
-		html_str = menu_list
+		html_str = contents_text
 		begin
-			File.open(@backup_file_path, "r") do |file|
-				buffer = file.read
-				buffer.gsub!(/^<!--ESTFORM-->$/, html_str)
-			end
 			File.open(@original_file_path, "w") do |file|
-				file.write(buffer)
+				file.write(html_str)
 			end
 		rescue Exception => e
 			error_message(e)
@@ -793,27 +685,52 @@ class GlobalMenu
 		print "\e[32mOK\e[m\n"
 	end
 
-	def menu_list
+	def contents_text
 		cgi_dir = CgiDir.new
 
-		html_str = "<div id='globalNavi'>\n"
+		html_str = ""
+		html_str << "<!DOCTYPE html>\n"
+		html_str << "<html lang='ja'>\n"
+		html_str << "\t<head>\n"
+		html_str << "\t\t<meta charset='utf-8'>\n"
+		html_str << "\t\t<meta http-equiv='X-UA-Compatible' content='IE=edge'>\n"
+		html_str << "\t\t<meta name='viewport' content='width=device-width, initial-scale=1'>\n"
+		html_str << "\t\t<title><!--ESTTITLE--></title>\n"
+		html_str << "\t\t<link href='#{Configuration.new.css_path}' rel='stylesheet'>\n"
+		html_str << "\t</head>\n"
+		html_str << "\t<body>\n"
+		html_str << "\t\t<nav class='navbar navbar-default' role='navigation'>\n"
+		html_str << "\t\t\t<div class='container-fluid'>\n"
+		html_str << "\t\t\t\t<div class='navbar-header'>\n"
+		html_str << "\t\t\t\t\t<a class='navbar-brand' href='#{Configuration.new.index_url}'>Full Text Search</a>\n"
+		html_str << "\t\t\t\t</div>\n"
+		html_str << "\t\t\t\t<ul class='nav navbar-nav navbar-left'>\n"
 		if !cgi_dir.main_categories.empty?
-			html_str += "<ul id='dropMenu'>\n"
+			html_str << "\t\t\t\t\t<li class='dropdown'>\n"
 			cgi_dir.main_categories.each do |cgi_main_category|
-				html_str += "<li><a href='#'>#{cgi_main_category.name}</a>\n"
+				html_str << "\t\t\t\t\t\t<a href='#' class='dropdown-toggle' data-toggle='dropdown'>#{cgi_main_category.name}<span class='caret'></span></a>\n"
 				if !cgi_main_category.cgi_files.empty?
-					html_str += "<ul>\n"
+					html_str << "\t\t\t\t\t\t<ul class='dropdown-menu' role='menu'>\n"
 					cgi_main_category.cgi_files.each do |cgi_file|
-						html_str += "<li><a href='#{cgi_file.url}'>#{cgi_file.name_without_ext}</a></li>\n"
+						html_str << "\t\t\t\t\t\t\t<li><a href='#{cgi_file.url}'>#{cgi_file.name_without_ext}</a></li>\n"
 					end
-					html_str += "</ul>\n"
+					html_str << "\t\t\t\t\t\t</ul>\n"
 				end
-				html_str += "</li>\n"
+				html_str << "\t\t\t\t\t</li>\n"
 			end
-			html_str += "</ul>\n"
+			html_str << "\t\t\t\t</ul>\n"
 		end
-		html_str += "</div>\n\n"
-		html_str += "<!--ESTFORM-->"
+		html_str << "\t\t\t</div>\n"
+		html_str << "\t\t</nav>\n"
+		html_str << "\t\t<div class='container'>\n"
+		html_str << "<!--ESTFORM-->\n"
+		html_str << "<!--ESTRESULT-->\n"
+		html_str << "<!--ESTINFO-->\n"	
+		html_str << "\t\t</div>\n"
+		html_str << "\t\t<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>\n"
+		html_str << "\t\t<script src='#{Configuration.new.javascript_path}'></script>\n"
+		html_str << "\t</body>\n"
+		html_str << "</html>\n"
 
 		return html_str
 	end
