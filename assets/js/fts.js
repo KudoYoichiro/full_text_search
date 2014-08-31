@@ -2113,33 +2113,34 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 }(jQuery);
 
-      function startup(){
-        if((document.location + "").indexOf("#") != -1) return;
-        var elem = document.getElementById("phrase");
-        if(elem) elem.focus();
-      }
-      window.onload = startup;
-      function changemax(){
-        var elem = document.getElementById("form_self");
-        if(elem) elem.submit();
-      }
-      function changeclip(){
-        var elem = document.getElementById("form_self");
-        if(elem) elem.submit();
-      }
-      function changetarget(value){
-        var felem = document.getElementById("form_self");
-        if(felem){
-          var aelem = document.getElementById("attr");
-          if(aelem) aelem.value = value;
-          felem.submit();
-        }
-      }
-      function changeorder(value){
-        var felem = document.getElementById("form_self");
-        if(felem){
-          var oelem = document.getElementById("order");
-          if(oelem) oelem.value = value;
-          felem.submit();
-        }
-      }
+  function startup(){
+    if((document.location + "").indexOf("#") != -1) return;
+    var elem = document.getElementById("phrase");
+    if(elem) elem.focus();
+  }
+  window.onload = startup;
+  function changemax(){
+    var elem = document.getElementById("form_self");
+    if(elem) elem.submit();
+  }
+  function changeclip(){
+    var elem = document.getElementById("form_self");
+    if(elem) elem.submit();
+  }
+  function changetarget(value){
+    var felem = document.getElementById("form_self");
+    if(felem){
+      var aelem = document.getElementById("attr");
+      if(aelem) aelem.value = value;
+      felem.submit();
+    }
+  }
+  function changeorder(value){
+    var felem = document.getElementById("form_self");
+    if(felem){
+      var oelem = document.getElementById("order");
+      if(oelem) oelem.value = value;
+      felem.submit();
+    }
+  }
+  

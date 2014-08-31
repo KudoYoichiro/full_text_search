@@ -8,7 +8,7 @@
 		<link href='/app/full_text_search/assets/css/fts.css' rel='stylesheet'>
 	</head>
 	<body>
-		<nav class='navbar navbar-default' role='navigation'>
+		<nav class='navbar navbar-default navbar-fixed-top' role='navigation'>
 			<div class='container-fluid'>
 				<div class='navbar-header'>
 					<a class='navbar-brand' href='http://192.168.11.5/sucoserver2/app/full_text_search/index.html'>Full Text Search</a>
@@ -19,6 +19,7 @@
 						<ul class='dropdown-menu' role='menu'>
 							<li><a href='http://192.168.11.5/cgi-bin/fts/Library/Electronics.cgi'>Electronics</a></li>
 							<li><a href='http://192.168.11.5/cgi-bin/fts/Library/Programming.cgi'>Programming</a></li>
+							<li><a href='http://192.168.11.5/cgi-bin/fts/Library/Science.cgi'>Science</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -27,7 +28,12 @@
 		<div class='container'>
 <!--ESTFORM-->
 <!--ESTRESULT-->
-<!--ESTINFO-->
+			<div id='estinfo' class='estinfo'>
+				<div id='info-nav'><!--ESTTITLE--></div>
+				<a href='http://fallabs.com/hyperestraier/'>Powerd by Hyper Estraier 1.4.13</a>
+				<br />
+				<a href='http://www.jascoint.co.jp/'>JASCO International Co., Ltd</a>
+			</div>
 		</div>
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
 		<script src='/app/full_text_search/assets/js/fts.js'></script>

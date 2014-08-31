@@ -13,7 +13,7 @@ class Configuration
 		@hyperestraier_filter_path =	"/usr/share/hyperestraier/filter"
 		@index_file_path =				File.join(@server_path, "app/full_text_search/index.html")
 		@index_url =					File.join(@server_url, "app/full_text_search/index.html")
-		@logfile_path =					File.join(@server_path, "app/full_text_search/logfile")
+		@logfile_path =					File.join(@server_path, "app/full_text_search/logfile/")
 		@caskets_path =					File.join(@server_path, "app/full_text_search/caskets")
 		@ini_path =						File.join(@server_path, "app/full_text_search/ini")
 		@estseek_master_path =			File.join(@server_path, "app/full_text_search/estseek_master")
