@@ -6273,6 +6273,9 @@ input.wbutton {
 input.wbutton:first-child {
   margin-left: 8px;
 }
+input.wbutton:last-child {
+  margin-right: 48px;
+}
 input.mbutton {
   width: 6.0em;
 }
