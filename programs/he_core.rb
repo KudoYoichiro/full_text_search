@@ -728,8 +728,6 @@ class CustomeTmpl
 		html_str << "\t\t\t<div id='estinfo' class='estinfo'>\n"
 		html_str << "\t\t\t\t<div id='info-nav'><!--ESTTITLE--></div>\n"
 		html_str <<	"\t\t\t\t<a href='http://fallabs.com/hyperestraier/'>Powerd by Hyper Estraier 1.4.13</a>\n"
-		html_str << "\t\t\t\t<br />\n"
-		html_str << "\t\t\t\t<a href='http://www.jascoint.co.jp/'>JASCO International Co., Ltd</a>\n"
 		html_str << "\t\t\t</div>\n"	
 		html_str << "\t\t</nav>\n"
 		html_str << "\t\t<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>\n"

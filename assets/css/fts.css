@@ -11,7 +11,7 @@ html {
       -ms-text-size-adjust: 100%;
 }
 body {
-  margin: 70px 0 70px;
+  margin: 70px 0 40px;
 }
 article,
 aside,
@@ -3767,7 +3767,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 50px;
+  min-height: 20px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
@@ -6395,7 +6395,7 @@ span.pnow {
   -moz-border-radius: 0.25em;
 }
 div.estinfo {
-  margin: 0 1.0em 1.0em; padding: 0em 0em; text-align: right;
+  margin: 0 1.0em; padding: 0em 0em; text-align: right;
   font-size: smaller; color: #555555;
   opacity: 0.80;
 }
