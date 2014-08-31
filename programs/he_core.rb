@@ -697,7 +697,7 @@ class CustomeTmpl
 		html_str << "\t\t<link href='#{Configuration.new.css_path}' rel='stylesheet'>\n"
 		html_str << "\t</head>\n"
 		html_str << "\t<body>\n"
-		html_str << "\t\t<nav class='navbar navbar-default navbar-fixed-top' role='navigation'>\n"
+		html_str << "\t\t<nav class='navbar navbar-default' role='navigation'>\n"
 		html_str << "\t\t\t<div class='container-fluid'>\n"
 		html_str << "\t\t\t\t<div class='navbar-header'>\n"
 		html_str << "\t\t\t\t\t<a class='navbar-brand' href='#{Configuration.new.index_url}'>Full Text Search</a>\n"
