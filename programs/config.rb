@@ -4,12 +4,12 @@ class Configuration
 	def set_paths
 
 
-		@server_url =					"http://#{MySocket.ip_address}/sucoserver2"
-		@server_path =					"/home/you/workspace/sucoserver2"
+		@server_url =					"http://#{MySocket.ip_address}"
+		@server_path =					"/home/kudo/server_contents"
 		@cgi_url = 						File.join("http://#{MySocket.ip_address}/cgi-bin", "fts")
 		@cgi_path = 					File.join("/usr/lib/cgi-bin", "fts")
-		@documents_url =				File.join(@server_url, "documents")
-		@documents_path =				"/home/you/workspace/share/documents"
+		@documents_url =				File.join(@server_url, "databank/documents")
+		@documents_path =				File.join(@server_path, "databank/documents")
 		@hyperestraier_filter_path =	"/usr/share/hyperestraier/filter"
 		@index_file_path =				File.join(@server_path, "app/full_text_search/index.html")
 		@index_url =					File.join(@server_url, "app/full_text_search/index.html")

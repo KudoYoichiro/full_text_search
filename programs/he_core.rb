@@ -704,8 +704,8 @@ class CustomeTmpl
 		html_str << "\t\t\t\t</div>\n"
 		html_str << "\t\t\t\t<ul class='nav navbar-nav navbar-left'>\n"
 		if !cgi_dir.main_categories.empty?
-			html_str << "\t\t\t\t\t<li class='dropdown'>\n"
 			cgi_dir.main_categories.each do |cgi_main_category|
+				html_str << "\t\t\t\t\t<li class='dropdown'>\n"
 				html_str << "\t\t\t\t\t\t<a href='#' class='dropdown-toggle' data-toggle='dropdown'>#{cgi_main_category.name}<span class='caret'></span></a>\n"
 				if !cgi_main_category.cgi_files.empty?
 					html_str << "\t\t\t\t\t\t<ul class='dropdown-menu' role='menu'>\n"
