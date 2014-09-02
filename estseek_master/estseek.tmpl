@@ -5,19 +5,23 @@
 		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
 		<title><!--ESTTITLE--></title>
-		<link href='/app/full_text_search/assets/css/fts.css' rel='stylesheet'>
+		<link href='/app/captured/assets/css/fts.css' rel='stylesheet'>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+		<script src='/app/captured/assets/js/fts.js'></script>
 	</head>
-	<body>
+	<body onload='onloadCheckOff();'>
 		<nav class='navbar navbar-default navbar-fixed-top' role='navigation'>
 			<div class='container-fluid'>
 				<div class='navbar-header'>
-					<a class='navbar-brand' href='http://192.168.66.71/app/full_text_search/index.html'>Full Text Search</a>
+					<a class='navbar-brand' href='http://192.168.66.71/app/captured/index.html'>Full Text Search</a>
 				</div>
 				<ul class='nav navbar-nav navbar-left'>
 					<li class='dropdown'>
 						<a href='#' class='dropdown-toggle' data-toggle='dropdown'>Engineer<span class='caret'></span></a>
 						<ul class='dropdown-menu' role='menu'>
-							<li><a href='http://192.168.66.71/cgi-bin/fts/Engineer/isoprime.cgi'>isoprime</a></li>
+							<li><a href='http://192.168.66.71/cgi-bin/fts/Engineer/Advion.cgi'>Advion</a></li>
+							<li><a href='http://192.168.66.71/cgi-bin/fts/Engineer/AistiScience.cgi'>AistiScience</a></li>
+							<li><a href='http://192.168.66.71/cgi-bin/fts/Engineer/Aurora.cgi'>Aurora</a></li>
 						</ul>
 					</li>
 					<li class='dropdown'>
@@ -40,7 +44,5 @@
 				<a href='http://fallabs.com/hyperestraier/'>Powerd by Hyper Estraier 1.4.13</a>
 			</div>
 		</nav>
-		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-		<script src='/app/full_text_search/assets/js/fts.js'></script>
 	</body>
 </html>

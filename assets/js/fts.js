@@ -2143,4 +2143,22 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
       felem.submit();
     }
   }
+
+  function onloadCheckOff() {
+    var href_raw = window.location.href;
+    var ary_href = href_raw.split(/\?/);
+    if(ary_href.length == 1) {
+      checkOff();
+    }
+  }
+
+  function checkOff() {
+      var felem = document.getElementById("form_self");
+      if(felem){
+        var chkelem = felem.elements.length;
+        for(var i = 0; i < chkelem; i++) {
+          felem.elements[i].checked = false;
+        }
+      }
+  }
   
