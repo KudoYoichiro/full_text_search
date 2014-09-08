@@ -719,25 +719,34 @@ class CustomeTmpl
 		html_str << "\t<body onload='onloadCheckOff();'>\n"
 		html_str << "\t\t<nav class='navbar navbar-default navbar-fixed-top' role='navigation'>\n"
 		html_str << "\t\t\t<div class='container-fluid'>\n"
-#		html_str << "\t\t\t\t<div class='navbar-header'>\n"
-#		html_str << "\t\t\t\t\t<a class='navbar-brand' href='#{Configuration.new.index_url}'>Full Text Search</a>\n"
-#		html_str << "\t\t\t\t</div>\n"
-		html_str << "\t\t\t\t<ul class='nav navbar-nav navbar-left'>\n"
+		html_str << "\t\t\t\t<div class='navbar-header'>\n"
+		html_str << "\t\t\t\t\t<button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#main_category_menu'>\n"
+		html_str << "\t\t\t\t\t\t<span class='sr-only'>Toggle navigation</span>\n"
+		html_str << "\t\t\t\t\t\t<span class='icon-bar'></span>\n"
+		html_str << "\t\t\t\t\t\t<span class='icon-bar'></span>\n"
+		html_str << "\t\t\t\t\t\t<span class='icon-bar'></span>\n"
+		html_str << "\t\t\t\t\t</button>\n"
+		html_str << "\t\t\t\t\t<a class='navbar-brand' href='#{Configuration.new.index_url}'>Full Text Search</a>\n"
+		html_str << "\t\t\t\t</div>\n"
+
+		html_str << "\t\t\t\t<div class='collapse navbar-collapse' id='main_category_menu'>\n"
+		html_str << "\t\t\t\t\t<ul class='nav navbar-nav navbar-left'>\n"
 		if !cgi_dir.main_categories.empty?
 			cgi_dir.main_categories.each do |cgi_main_category|
-				html_str << "\t\t\t\t\t<li class='dropdown'>\n"
-				html_str << "\t\t\t\t\t\t<a href='#' class='dropdown-toggle' data-toggle='dropdown'>#{cgi_main_category.name}<span class='caret'></span></a>\n"
+				html_str << "\t\t\t\t\t\t<li class='dropdown'>\n"
+				html_str << "\t\t\t\t\t\t\t<a href='#' class='dropdown-toggle' data-toggle='dropdown'>#{cgi_main_category.name}<span class='caret'></span></a>\n"
 				if !cgi_main_category.cgi_files.empty?
-					html_str << "\t\t\t\t\t\t<ul class='dropdown-menu' role='menu'>\n"
+					html_str << "\t\t\t\t\t\t\t<ul class='dropdown-menu' role='menu'>\n"
 					cgi_main_category.cgi_files.each do |cgi_file|
-						html_str << "\t\t\t\t\t\t\t<li><a href='#{cgi_file.url}'>#{cgi_file.name_without_ext}</a></li>\n"
+						html_str << "\t\t\t\t\t\t\t\t<li><a href='#{cgi_file.url}'>#{cgi_file.name_without_ext}</a></li>\n"
 					end
-					html_str << "\t\t\t\t\t\t</ul>\n"
+					html_str << "\t\t\t\t\t\t\t</ul>\n"
 				end
-				html_str << "\t\t\t\t\t</li>\n"
+				html_str << "\t\t\t\t\t\t</li>\n"
 			end
-			html_str << "\t\t\t\t</ul>\n"
+			html_str << "\t\t\t\t\t</ul>\t\n"
 		end
+		html_str << "\t\t\t\t</div\n"
 		html_str << "\t\t\t</div>\n"
 		html_str << "\t\t</nav>\n"
 		html_str << "\t\t<div class='container'>\n"
