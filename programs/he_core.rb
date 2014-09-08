@@ -520,12 +520,14 @@ class IniFile < BaseFile
 					docs_sub_category.genres.each do |docs_genre|
 						file.write(plane_text_with_genre_cmd(casket_path, docs_genre))
 						file.write(msoffice_with_genre_cmd(casket_path, docs_genre))
+						file.write(msofficex_with_genre_cmd(casket_path, docs_genre))
 						file.write(pdf_with_genre_cmd(casket_path, docs_genre))
 						file.write("\n")
 					end
 
 					file.write(plane_text_cmd(casket_path, docs_sub_category))
 					file.write(msoffice_cmd(casket_path, docs_sub_category))
+					file.write(msofficex_cmd(casket_path, docs_sub_category))
 					file.write(pdf_cmd(casket_path, docs_sub_category))
 
 					file.write("\n#*** purge #{docs_sub_category.name} index ***\n")
@@ -595,6 +597,14 @@ class IniFile < BaseFile
 		return str
 	end
 
+	def msofficex_cmd(casket_path, docs_sub_category)
+		str = cmd_header
+		str += "-fx \".docx,.xlsx,.pptx\" \"H@estfx_ooxml2xml.sh\" -fz "
+		str += cmd_footer(casket_path, docs_sub_category)
+
+		return str
+	end
+
 	def pdf_cmd(casket_path, docs_sub_category)
 		str = cmd_header
 		str += "-fx \".pdf\" \"H@estfxpdftohtml\" -fz "
@@ -613,6 +623,14 @@ class IniFile < BaseFile
 	def msoffice_with_genre_cmd(casket_path, docs_genre)
 		str = cmd_header
 		str += "-fx \".doc,.xls,.ppt\" \"H@estfxmsotohtml\" -fz "
+		str += cmd_genre_footer(casket_path, docs_genre)
+
+		return str
+	end
+
+	def msofficex_with_genre_cmd(casket_path, docs_genre)
+		str = cmd_header
+		str += "-fx \".docx,.xlsx,.pptx\" \"H@estfx_ooxml2xml.sh\" -fz "
 		str += cmd_genre_footer(casket_path, docs_genre)
 
 		return str
@@ -701,9 +719,9 @@ class CustomeTmpl
 		html_str << "\t<body onload='onloadCheckOff();'>\n"
 		html_str << "\t\t<nav class='navbar navbar-default navbar-fixed-top' role='navigation'>\n"
 		html_str << "\t\t\t<div class='container-fluid'>\n"
-		html_str << "\t\t\t\t<div class='navbar-header'>\n"
-		html_str << "\t\t\t\t\t<a class='navbar-brand' href='#{Configuration.new.index_url}'>Full Text Search</a>\n"
-		html_str << "\t\t\t\t</div>\n"
+#		html_str << "\t\t\t\t<div class='navbar-header'>\n"
+#		html_str << "\t\t\t\t\t<a class='navbar-brand' href='#{Configuration.new.index_url}'>Full Text Search</a>\n"
+#		html_str << "\t\t\t\t</div>\n"
 		html_str << "\t\t\t\t<ul class='nav navbar-nav navbar-left'>\n"
 		if !cgi_dir.main_categories.empty?
 			cgi_dir.main_categories.each do |cgi_main_category|
