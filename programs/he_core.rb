@@ -120,6 +120,10 @@ class DocsDir < BaseDir
 			}
 		end
 	end
+
+	def make_files_readable
+		FileUtils.chmod_R("a+r", @path) if self.exist?
+	end
 end
 
 class CgiDir < BaseDir
