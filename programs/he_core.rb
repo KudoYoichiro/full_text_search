@@ -26,7 +26,8 @@ class Configuration
 	:conf_settings,
 	:index_settings,
 	:css_path,
-	:javascript_path
+	:javascript_path,
+	:icon_path
 
 	def initialize
 		set_paths
@@ -730,7 +731,7 @@ class CustomeTmpl
 		html_str << "\t\t\t\t\t\t<span class='icon-bar'></span>\n"
 		html_str << "\t\t\t\t\t\t<span class='icon-bar'></span>\n"
 		html_str << "\t\t\t\t\t</button>\n"
-		html_str << "\t\t\t\t\t<a class='navbar-brand' href='#{Configuration.new.index_url}'>Full Text Search</a>\n"
+		html_str << "\t\t\t\t\t<a class='navbar-brand' href='#{Configuration.new.documents_url}'><img alt='Folder' src='#{File.join(Configuration.new.icon_path, "folder.svg")}'></a>\n"
 		html_str << "\t\t\t\t</div>\n"
 
 		html_str << "\t\t\t\t<div class='collapse navbar-collapse' id='main_category_menu'>\n"

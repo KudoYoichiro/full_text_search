@@ -5,14 +5,14 @@ class Configuration
 
 
 		@server_url =					"http://#{MySocket.ip_address}"
-		@server_path =					"/home/kudo/server_contents"
+		@server_path =					"/home/hekatoncheir/server_contents"
 		@cgi_url = 						File.join("http://#{MySocket.ip_address}/cgi-bin", "fts")
 		@cgi_path = 					File.join("/usr/lib/cgi-bin", "fts")
 		@documents_url =				File.join(@server_url, "databank/documents")
 		@documents_path =				File.join(@server_path, "databank/documents")
 		@hyperestraier_filter_path =	"/usr/share/hyperestraier/filter"
 		@index_file_path =				File.join(@server_path, "app/full_text_search/index.html")
-		@index_url =					File.join(@server_url, "app/captured/index.html")
+		@index_url =					File.join(@server_url, "app/full_text_search/index.html")
 		@logfile_path =					File.join(@server_path, "app/full_text_search/logfile/")
 		@caskets_path =					File.join(@server_path, "app/full_text_search/caskets")
 		@ini_path =						File.join(@server_path, "app/full_text_search/ini")
@@ -22,8 +22,9 @@ class Configuration
 		@estseek_master_help_path =		File.join(@estseek_master_path, "estseek.help")
 		@estseek_master_tmpl_path =		File.join(@estseek_master_path, "estseek.tmpl")
 		@estseek_master_top_path =		File.join(@estseek_master_path, "estseek.top")
-		@css_path = 					"/app/captured/assets/css/fts.css"
-		@javascript_path = 				"/app/captured/assets/js/fts.js"
+		@css_path = 					"/app/full_text_search/assets/css/fts.css"
+		@javascript_path = 				"/app/full_text_search/assets/js/fts.js"
+		@icon_path = 					"/app/full_text_search/assets/icon/"
 
 
 	end
