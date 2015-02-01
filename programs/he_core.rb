@@ -751,7 +751,7 @@ class CustomeTmpl
 			end
 			html_str << "\t\t\t\t\t</ul>\t\n"
 		end
-		html_str << "\t\t\t\t</div\n"
+		html_str << "\t\t\t\t</div>\n"
 		html_str << "\t\t\t</div>\n"
 		html_str << "\t\t</nav>\n"
 		html_str << "\t\t<div class='container'>\n"
