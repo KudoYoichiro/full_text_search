@@ -5,7 +5,7 @@ class Configuration
 
 
 		@server_url =					"http://#{MySocket.ip_address}"
-		@server_path =					"/home/hekatoncheir/server_contents"
+		@server_path =					"/home/kudo/server_contents"
 		@cgi_url = 						File.join("http://#{MySocket.ip_address}/cgi-bin", "fts")
 		@cgi_path = 					File.join("/usr/lib/cgi-bin", "fts")
 		@documents_url =				File.join(@server_url, "databank/documents")
